@@ -1,5 +1,5 @@
 key.txt.age
-{{- if eq .chezmoi.os "Windows" }}
+{{- if eq .chezmoi.os "windows" }}
 .zsh_config
 .zsh_rc
 {{- end }}
