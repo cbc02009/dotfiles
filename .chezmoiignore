@@ -2,4 +2,10 @@ key.txt.age
 {{- if eq .chezmoi.os "windows" }}
 .zsh_config
 .zshrc
+run_once_before_decrypt-private-key.sh.tmpl
 {{- end }}
+.github
+.gitkeep
+LICENSE
+README.md
+settings.json  

@@ -6,6 +6,11 @@
 #
 # BSD licensed, see LICENSE.txt in this repository.
 
+# Check if a command exists
+function can_haz() {
+  which "$@" > /dev/null 2>&1
+}
+
 alias cputop="top -o cpu"
 alias ll='ls -alFh --color=always --group-directories-first'
 alias la='ls -a'
@@ -40,7 +45,15 @@ alias ...="cd ../.."
 alias mc='micro'
 
 #go-task
-alias task='go-task'
+if can_haz go-task; then
+	alias task='go-task'
+fi
+
+#kubectl
+if can_haz kubectl; then
+	alias kdhr='kubectl describe hr'
+	alias kdelhr='kubectl delete hr'
+fi
 
 # function to log into lxc containers
 function lexec() {
