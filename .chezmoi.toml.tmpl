@@ -1,3 +1,47 @@
+{{- /* Checks if running interactively */ -}}
+{{- $interactive := stdinIsATTY -}}
+
+{{- /* Template file for chezmoi config file */ -}}
+{{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
+{{- $kubernetes := false -}}{{/* true if this machine is used for Kubernetes work */}}
+{{- $agekey := false -}}{{/* true if this machine has agekey to decrypt secret */}}
+
+{{- $hostname := .chezmoi.hostname -}}
+{{- if eq $hostname "Yuzu" -}}
+{{-   $headless = false -}}
+{{-   $kubernetes = true -}}
+{{-   $agekey = false -}}
+{{- end -}}
+{{- if eq $hostname "Shinobu" -}}
+{{-   $headless = false -}}
+{{-   $kubernetes = true -}}
+{{-   $agekey = false -}}
+{{- end -}}
+{{- if hasKey . "headless" -}}
+{{-   $headless = .headless -}}
+{{- else if $interactive -}}
+{{-   $headless = promptBool "headless" -}}
+{{- end -}}
+{{- if hasKey . "kubernetes" -}}
+{{-   $kubernetes = .kubernetes -}}
+{{- else if $interactive -}}
+{{-   $kubernetes = promptBool "kubernetes" -}}
+{{- end -}}
+{{- if hasKey . "agekey" -}}
+{{-   $agekey = .agekey -}}
+{{- else if $interactive -}}
+{{-   $agekey = promptBool "agekey" -}}
+{{- end -}}
+
+{{- if $interactive -}}
+{{-   writeToStdout "💡 Tip: you can re-enter your data with `chezmoi init --data=false`.\n" -}}
+{{- end -}}
+
+[data]
+  headless = {{ $headless }}
+  kubernetes = {{ $kubernetes }}
+  agekey = {{ $agekey }}
+
 [git]
   autoAdd = true
   autoCommit = true

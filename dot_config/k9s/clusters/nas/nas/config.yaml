@@ -1,0 +1,15 @@
+k9s:
+  cluster: nas
+  readOnly: false
+  namespace:
+    active: all
+    lockFavorites: false
+    favorites:
+    - network
+    - all
+    - default
+  view:
+    active: service
+  featureGates:
+    nodeShell: false
+  portForwardAddress: localhost

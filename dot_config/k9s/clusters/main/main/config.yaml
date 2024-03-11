@@ -1,0 +1,18 @@
+k9s:
+  cluster: main
+  readOnly: false
+  namespace:
+    active: all
+    lockFavorites: false
+    favorites:
+    - network
+    - organizarrs
+    - downloads
+    - monitoring
+    - media
+    - all
+  view:
+    active: "no"
+  featureGates:
+    nodeShell: false
+  portForwardAddress: localhost

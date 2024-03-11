@@ -1,8 +1,7 @@
-key.txt.age
-{{- if eq .chezmoi.os "windows" }}
-.zsh_config
-.zshrc
-run_once_before_decrypt-private-key.sh.tmpl
+{{- if (and (eq .chezmoi.os "linux") (not .kubernetes)) }}
+.kube/config
+.talos/config
+.config/k9s/
 {{- end }}
 .github
 .gitkeep
