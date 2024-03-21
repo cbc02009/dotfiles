@@ -1,6 +1,7 @@
 fish_add_path "{{ .chezmoi.homeDir }}/.local/bin"
 fish_add_path "{{ .chezmoi.homeDir }}/.cargo/bin"
 fish_add_path "{{ .chezmoi.homeDir }}/.go/bin"
+fish_add_path {{ .chezmoi.homeDir }}/.local/share/aquaproj-aqua/bin
 {{ if .kubernetes -}}
 fish_add_path "{{ .chezmoi.homeDir }}/.krew/bin"
 {{ end -}}
