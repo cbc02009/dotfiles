@@ -1,0 +1,42 @@
+{{ if (eq .chezmoi.os "linux") -}}
+registries:
+  - type: standard
+    ref: v4.154.0    # renovate: depName=aquaproj/aqua-registry
+
+packages:
+  - name: twpayne/chezmoi@v2.47.2
+  - name: junegunn/fzf@0.48.1
+  - name: starship/starship@v1.17.1
+  - name: ajeetdsouza/zoxide@v0.9.4
+  - name: BurntSushi/ripgrep@14.1.0
+  - name: sharkdp/fd@v9.0.0
+  - name: sharkdp/bat@v0.24.0
+  - name: eza-community/eza@v0.18.7
+  - name: blacknon/hwatch@0.3.11
+  - name: zellij-org/zellij@v0.39.2
+  - name: gohugoio/hugo@v0.124.1
+  - name: dandavison/delta@0.17.0
+  - name: ms-jpq/sad@v0.4.23
+{{-   if .agekey }}
+  - name: FiloSottile/age@v1.1.1
+{{-   end }}
+{{-   if not .headless }}
+  - name: golang/go@1.22.1
+  - name: cli/cli@v2.46.0
+  - name: go-task/task@v3.35.1
+  - name: direnv/direnv@v2.34.0
+  - name: goreleaser/goreleaser@v1.24.0
+{{-   end }}
+{{-   if .kubernetes }}
+  - name: mikefarah/yq@v4.42.1
+  - name: kubernetes/kubectl@v1.29.3
+  - name: fluxcd/flux2@v2.2.3
+  - name: kubernetes-sigs/kustomize@kustomize/v5.3.0
+  - name: kubernetes-sigs/krew@v0.4.4
+  - name: mozilla/sops@v3.8.1
+  - name: helm/helm@v3.14.3
+  - name: siderolabs/talos@v1.6.7
+  - name: derailed/k9s@v0.32.4
+  - name: budimanjojo/talhelper@v2.3.5
+{{-   end }}
+{{- end }}
