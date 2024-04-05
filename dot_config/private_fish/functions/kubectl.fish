@@ -227,3 +227,11 @@ abbr --add kgsecwn "kubectl get secret --watch --namespace"
 abbr --add kghrwn "kubectl get helmrelease --watch --namespace"
 abbr --add kgkwn "kubectl get kustomization --watch --namespace"
 abbr --add kgpvcwn "kubectl get pvc --watch --namespace"
+
+# Tools for accessing all information
+abbr --add kga "kubectl get all"
+abbr --add kgaa "kubectl get all --all-namespaces"
+
+# Scaling shortcuts
+abbr --add ksd "kubectl scale deployment"
+abbr --add kssts "kubectl scale statefulset"
