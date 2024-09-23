@@ -172,3 +172,11 @@ enter_accept = true
 #
 # Set commands that should be totally stripped and ignored from stats
 #common_prefix = ["sudo"]
+
+[sync]
+records = true
+
+[daemon]
+enabled = true
+socket_path = "/run/user/1000/atuin.sock"
+sync_frequency = 30
