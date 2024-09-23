@@ -1,8 +1,8 @@
-set -gx KUBE_EDITOR micro
-set -gx VISUAL micro
-set -gx EDITOR micro
+set -gx KUBE_EDITOR nvim
+set -gx VISUAL nvim
+set -gx EDITOR nvim
 set -gx HOMEBREW_NO_ANALYTICS 1
-set -gx GOPATH {{ .chezmoi.homeDir }}/.go
+set -gx GOPATH /home/chris/.go
 set -gx ANSIBLE_FORCE_COLOR true
 set -gx ANSIBLE_HOST_KEY_CHECKING False
 set -gx PY_COLORS true
@@ -30,19 +30,19 @@ for file in $__fish_config_dir/custom.d/*.fish
 end
 
 if type -q direnv
-    direnv hook fish | source
+    {{ lookPath "direnv" }} hook fish | source
 end
 
 if type -q thefuck
-    thefuck --alias | source
+    {{ lookPath "thefuck" }} --alias | source
 end
 
 if type -q atuin
-    atuin init fish | source
+    {{ lookPath "atuin" }} init fish | source
 end
 
 if type -q starship
-    starship init fish | source
+    {{ lookPath "starship" }} init fish | source
 end
 
 if type -q zoxide

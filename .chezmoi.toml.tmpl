@@ -4,7 +4,7 @@
 {{- /* Template file for chezmoi config file */ -}}
 {{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
 {{- $kubernetes := false -}}{{/* true if this machine is used for Kubernetes work */}}
-{{- $agekey := false -}}{{/* true if this machine has agekey to decrypt secret */}}
+{{- $minimal := false -}}{{/* true if minimal installation required for containers etc */}}
 
 {{- $hostname := .chezmoi.hostname -}}
 {{- if eq $hostname "Yuzu" -}}
@@ -27,10 +27,10 @@
 {{- else if $interactive -}}
 {{-   $kubernetes = promptBool "kubernetes" -}}
 {{- end -}}
-{{- if hasKey . "agekey" -}}
-{{-   $agekey = .agekey -}}
+{{- if hasKey . "minimal" -}}
+{{-   $minimal = .minimal -}}
 {{- else if $interactive -}}
-{{-   $agekey = promptBool "agekey" -}}
+{{-   $minimal = promptBool "minimal" -}}
 {{- end -}}
 
 {{- if $interactive -}}
@@ -40,7 +40,7 @@
 [data]
   headless = {{ $headless }}
   kubernetes = {{ $kubernetes }}
-  agekey = {{ $agekey }}
+  minimal = {{ $minimal }}
 
 [git]
   autoAdd = true

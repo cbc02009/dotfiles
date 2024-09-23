@@ -70,6 +70,19 @@ if type -q k9s
   abbr ks 'k9s'
 end
 
+# eza
+if type -q eza
+  abbr lsa 'ls -lah'
+  abbr l 'eza'
+  abbr ll 'eza --long --git --header'
+  abbr la 'eza -a --long --git --header'
+else
+  abbr lsa 'ls -lah'
+  abbr l 'ls'
+  abbr ll 'ls -lh'
+  abbr la 'ls -lAh'
+end
+
 # edit config files
 abbr evim '$EDITOR $HOME/.vimrc'
 abbr envim '$EDITOR $HOME/.config/nvim/init.vim'
@@ -89,7 +102,3 @@ abbr cpr 'cp -rf'
 abbr rmr 'rm -rf'
 abbr md 'mkdir -p'
 abbr rd 'rmdir'
-abbr lsa 'ls -lah'
-abbr l 'ls -lah'
-abbr ll 'ls -lh'
-abbr la 'ls -lAh'
