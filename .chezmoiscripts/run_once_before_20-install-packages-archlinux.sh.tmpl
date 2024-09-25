@@ -41,10 +41,10 @@ if [ ! $(command -v paru) ]; then
 {{-   else}}
   pacman -S --needed --noconfirm git base-devel
 {{-   end }}
-  git clone https://github.com/Morganamilo/paru.git /tmp/paru
-  cd /tmp/paru
+  git clone https://github.com/Morganamilo/paru-bin.git /tmp/paru-bin
+  cd /tmp/paru-bin
   makepkg -si --noconfirm
-  rm -rf /tmp/paru
+  rm -rf /tmp/paru-bin
 fi
 
 for aur_package in ${aur_packages[@]}; do
