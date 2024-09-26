@@ -26,6 +26,15 @@ if type -q pacman
 {{- end }}
 end
 
+# systemctl
+if type -q systemctl
+{{- if ne .chezmoi.username "root" }}
+  abbr s 'sudo systemctl'
+{{- else }}
+  abbr s systemctl
+{{- end }}
+end
+
 # chezmoi
 if type -q chezmoi
   abbr c 'chezmoi'
