@@ -5,6 +5,7 @@
 {{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
 {{- $kubernetes := false -}}{{/* true if this machine is used for Kubernetes work */}}
 {{- $minimal := false -}}{{/* true if minimal installation required for containers etc */}}
+{{- $agekey := false -}}{{/* true if age key required */}}
 
 {{- $hostname := .chezmoi.hostname -}}
 {{- if eq $hostname "Yuzu" -}}
